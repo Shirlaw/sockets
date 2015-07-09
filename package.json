@@ -1,0 +1,21 @@
+{
+  "name": "RealTimeWebChat",
+  "version": "0.0.0",
+  "description": "Real time web chat",
+  "dependencies": {
+    "coffee-script": "latest",
+    "express": "latest",
+    "jade": "latest",
+    "socket.io": "latest",
+    "mongoose": "latest"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-coffee": "^2.3.1",
+    "gulp-watch": "^4.1.1",
+    "gulp-concat": "^2.5.2",
+    "gulp-include": "^1.1.1",
+    "gulp-ejs-template": "^0.2.0"
+  },
+  "author": "James Shirlaw"
+}
