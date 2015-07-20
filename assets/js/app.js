@@ -18933,17 +18933,28 @@ function toArray(list, index) {
 });
 
 ;
-  var Sockets, socket,
+  var SocketConnector, Sockets,
     extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
     hasProp = {}.hasOwnProperty;
 
   Sockets = {};
 
-  socket = io.connect("http://localhost:3700");
+  SocketConnector = (function() {
+    function SocketConnector() {}
 
-  socket.on("patients", function(data) {
-    return app.patients.reset(data);
-  });
+    SocketConnector.prototype.init_connection = function() {
+      return this.socket = io.connect("http://localhost:3700");
+    };
+
+    SocketConnector.prototype.load_patients = function() {
+      return this.socket.on("patients", function(data) {
+        return app.patients.reset(data);
+      });
+    };
+
+    return SocketConnector;
+
+  })();
 
   Sockets.PatientItem = (function(superClass) {
     extend(PatientItem, superClass);
@@ -19065,6 +19076,8 @@ function toArray(list, index) {
     }
 
     Router.prototype.initialize = function() {
+      this.connector = new SocketConnector;
+      this.connector.init_connection();
       this.patients = new Sockets.Patients;
       return Backbone.history.start();
     };
@@ -19074,6 +19087,7 @@ function toArray(list, index) {
     };
 
     Router.prototype.index = function() {
+      this.connector.load_patients();
       return this.view = new Sockets.PatientList({
         collection: this.patients
       });

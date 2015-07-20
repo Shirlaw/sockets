@@ -5,9 +5,10 @@
 #= require vendor/socket.io.js
 `
 
+
+
 #= require namespace.coffee
 #= require socket_connector
-
 #= require_tree modules
 #= require_tree views
 # = require_tree models
@@ -20,14 +21,16 @@
 class Sockets.Router extends Backbone.Router
 
   initialize: ->
+    @connector = new SocketConnector
+    @connector.init_connection()
     @patients = new Sockets.Patients
-
     Backbone.history.start()
 
   routes:
     '' : 'index'
 
   index: ->
+    @connector.load_patients()
     @view = new Sockets.PatientList collection: @patients
 
 
