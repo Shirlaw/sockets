@@ -15,7 +15,7 @@
 
   templates['patient_item']  = templates['patient_item.html'] = function(it) {
     var locals = it, __output = "";
-    ;__output += escape(locals._id);__output += "\n";;__output += escape(locals.first_name);__output += "\n<div class=\"delete\">Delete</div>\n\n<br>";
+    ;__output += escape(locals._id);__output += "\n";;__output += escape(locals.first_name);__output += "\n<div class=\"delete button\">Delete</div>\n\n<br>";
     return __output.trim();
   };
   

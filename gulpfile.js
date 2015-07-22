@@ -33,7 +33,7 @@ gulp.task('sass', function () {
   gulp.src('./sass/app.scss')
     .pipe(include())
     .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest('./css')
+    .pipe(gulp.dest('./assets/css')
   );
 });
 

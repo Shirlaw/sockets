@@ -17,7 +17,9 @@
     "gulp-include": "^1.1.1",
     "gulp-ejs-template": "^0.2.0",
     "gulp-sass": "^2.0.4",
-    "gulp-plumber": "^1.0.1"
+    "gulp-plumber": "^1.0.1",
+    "an": "0.0.7",
+    "connect-assets": "^4.8.0"
   },
   "author": "James Shirlaw"
 }
