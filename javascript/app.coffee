@@ -8,6 +8,7 @@
 
 
 #= require namespace.coffee
+#= require_tree extenders
 #= require socket_connector
 #= require_tree modules
 #= require_tree views
