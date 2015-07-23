@@ -11,7 +11,7 @@ gulp.task('default', function() {
 });
 
 gulp.task('compile-coffee', function () {
-  gulp.src('./javascript/app.coffee') // path to your file
+  gulp.src('./coffeescript/app.coffee') // path to your file
     .pipe(plumber())
     .pipe(include())
     .pipe(coffee())
@@ -20,7 +20,7 @@ gulp.task('compile-coffee', function () {
 });
 
 gulp.task('compile-templates', function () {
-  gulp.src('javascript/tpl/*.html')
+  gulp.src('coffeescript/tpl/*.html')
     .pipe(plumber())
     .pipe(gulpEjs({
       moduleName: 'templates'
@@ -38,7 +38,7 @@ gulp.task('sass', function () {
 });
 
 gulp.task('watch', function(){
-  gulp.watch(['./javascript/tpl/*.html'], ['compile-templates'])
-  gulp.watch(['./javascript/*.coffee', './javascript/**/*.coffee', './javascript/**/**/*.coffee', './javascript/**/**/*.coffee'], ['compile-coffee'])
+  gulp.watch(['./coffeescript/tpl/*.html'], ['compile-templates'])
+  gulp.watch(['./coffeescript/*.coffee', './coffeescript/**/*.coffee', './coffeescript/**/**/*.coffee', './coffeescript/**/**/*.coffee'], ['compile-coffee'])
   gulp.watch(['./sass/**/*.scss'], ['sass']);
 });

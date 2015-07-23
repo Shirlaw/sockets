@@ -15,7 +15,6 @@
 class Sockets.Router extends Backbone.Router
 
   initialize: ->
-    console.log Base
     @connector = new SocketConnector
     @connector.init_connection()
     @patients = new Sockets.Patients
