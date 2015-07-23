@@ -4,24 +4,18 @@
 #= require vendor/backbone.js
 #= require vendor/socket.io.js
 `
-
-
-
 #= require namespace.coffee
 #= require_tree extenders
 #= require socket_connector
 #= require_tree modules
 #= require_tree views
-# = require_tree models
-# = require_tree collections
-
-
-
-
+#= require_tree models
+#= require_tree collections
 
 class Sockets.Router extends Backbone.Router
 
   initialize: ->
+    console.log Base
     @connector = new SocketConnector
     @connector.init_connection()
     @patients = new Sockets.Patients

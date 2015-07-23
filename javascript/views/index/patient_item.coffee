@@ -1,4 +1,4 @@
-class Sockets.PatientItem extends Backbone.View
+class Sockets.PatientItem extends Base.View
 
   tagName: 'li'
   template: templates.get(['patient_item.html'])
@@ -13,7 +13,6 @@ class Sockets.PatientItem extends Backbone.View
     'click .delete' : 'delete'
 
   delete: ->
-    console.log @model
     socket.emit('delete', { id: "#{@model.id}" })
 
   _render: ->

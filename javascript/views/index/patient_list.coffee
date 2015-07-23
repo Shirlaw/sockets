@@ -1,4 +1,4 @@
-class Sockets.PatientList extends Backbone.View
+class Sockets.PatientList extends Base.View
 
   template: templates.get(['patient_list.html'])
 

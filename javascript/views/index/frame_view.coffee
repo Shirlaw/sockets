@@ -1,1 +1,3 @@
-class Sockets.Index.FrameView extends Backbone.View
+class Sockets.Index.FrameView extends Base.View
+
+

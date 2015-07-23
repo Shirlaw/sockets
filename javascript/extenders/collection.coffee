@@ -1,0 +1,1 @@
+class Base.Collection extends Backbone.Collection

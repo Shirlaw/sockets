@@ -1,4 +1,4 @@
-class Sockets.Patient extends Backbone.Model
+class Sockets.Patient extends Base.Model
 
   idAttribute: "_id"
 

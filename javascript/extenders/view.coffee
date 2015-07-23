@@ -1,1 +1,1 @@
-class
+class Base.View extends Backbone.View

@@ -1,3 +1,3 @@
-class Sockets.Patients extends Backbone.Collection
+class Sockets.Patients extends Base.Collection
 
   model: Sockets.Patient
