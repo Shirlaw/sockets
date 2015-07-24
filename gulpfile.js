@@ -20,7 +20,7 @@ gulp.task('compile-coffee', function () {
 });
 
 gulp.task('compile-templates', function () {
-  gulp.src('coffeescript/tpl/*.html')
+  gulp.src(['coffeescript/tpl/*.html', 'coffeescript/tpl/**/*.html'])
     .pipe(plumber())
     .pipe(gulpEjs({
       moduleName: 'templates'
@@ -38,7 +38,7 @@ gulp.task('sass', function () {
 });
 
 gulp.task('watch', function(){
-  gulp.watch(['./coffeescript/tpl/*.html'], ['compile-templates'])
+  gulp.watch(['./coffeescript/tpl/**/*.html'], ['compile-templates'])
   gulp.watch(['./coffeescript/*.coffee', './coffeescript/**/*.coffee', './coffeescript/**/**/*.coffee', './coffeescript/**/**/*.coffee'], ['compile-coffee'])
   gulp.watch(['./sass/**/*.scss'], ['sass']);
 });

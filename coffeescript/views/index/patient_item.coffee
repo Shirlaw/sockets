@@ -1,22 +1,24 @@
 class Sockets.PatientItem extends Base.View
 
-  tagName: 'li'
-  template: templates.get(['patient_item.html'])
+  className: 'row'
+  template: templates.get(['index/patient.html'])
 
   initialize: (options) ->
+    console.log 'ahh'
     @parent = options.parent
 
     @_render()
     @_position()
 
   events:
-    'click .delete' : 'delete'
+    'click .delete-patient' : 'delete_patient'
 
-  delete: ->
+  delete_patient: ->
+    console.log 'here'
     socket.emit('delete', { id: "#{@model.id}" })
 
   _render: ->
     @$el.html @template @model.toJSON()
 
   _position: ->
-    @parent.$patient_list.append @el
+    @parent.$el.append @el

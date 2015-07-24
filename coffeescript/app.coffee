@@ -25,7 +25,11 @@ class Sockets.Router extends Backbone.Router
 
   index: ->
     @connector.load_patients()
-    @view = new Sockets.PatientList collection: @patients
+    @frame = new Sockets.Index.FrameView app: this
+    @view = new Sockets.PatientList collection: @patients, app: this, frame: @frame
+
+    # @frame = @render_frame Sockets.Index.FrameView app: @
+    # @view = @render_view Sockets.PatientList collection: @patients
 
 
 
