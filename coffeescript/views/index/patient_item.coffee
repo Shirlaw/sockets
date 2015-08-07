@@ -4,9 +4,6 @@ class Sockets.PatientItem extends Base.View
   template: templates.get(['index/patient.html'])
 
   initialize: (options) ->
-    console.log 'ahh'
-    @parent = options.parent
-
     @_render()
     @_position()
 
@@ -14,8 +11,7 @@ class Sockets.PatientItem extends Base.View
     'click .delete-patient' : 'delete_patient'
 
   delete_patient: ->
-    console.log 'here'
-    socket.emit('delete', { id: "#{@model.id}" })
+    @app.connector.delete_patient @model.id
 
   _render: ->
     @$el.html @template @model.toJSON()

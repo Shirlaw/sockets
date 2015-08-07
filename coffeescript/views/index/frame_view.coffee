@@ -7,6 +7,12 @@ class Sockets.Index.FrameView extends Base.View
     @_render()
     @_position()
 
+  events:
+    'click .new-patient' : 'new_patient'
+
+  new_patient: ->
+    @app.connector.create_patient()
+
   _render: ->
     @$el.html @template()
     @$container = @$('.container')

@@ -9,4 +9,10 @@ routes = (io, Patient) ->
         if err
           return handleError(err)
 
+    socket.on 'create_patient', ->
+      Patient.create { size: 'small' }, (err, patient) =>
+        if err
+          return handleError(err)
+        socket.emit "load_patient", patient
+
 module.exports = routes
